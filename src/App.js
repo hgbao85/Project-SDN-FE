@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Header from "./component/header";
 
-function App() {
+const App = () => {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Routes>
+      <Route path="/" element={<Header />} />
 
-export default App;
+      <Route path="/Login" element={<Header />} />
+      <Route path="/Signup" element={<Header />} />
+      <Route path="/support" element={<Header />} />
+      <Route path="/home" element={<Header />} />
+    </Routes>
+  );
+};
+
+// Wrap the App component with BrowserRouter
+const AppWithRouter = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWithRouter;
