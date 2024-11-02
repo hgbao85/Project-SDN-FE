@@ -1,64 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <div style={styles.header}>
-      <Container>
-        <nav style={styles.navbar}>
-          <Row style={styles.navLinks}>
-            <Col>
-              <Link to="/" style={styles.navItem}>
-                Home
-              </Link>
-            </Col>
-            <Col>
-              <Link to="/shop" style={styles.navItem}>
-                Shop
-              </Link>
-            </Col>
-            <Col>
-              <Link to="/profile" style={styles.navItem}>
-                Profile
-              </Link>
-            </Col>
-            <Col>
-              <Link to="/cart" style={styles.navItem}>
-                Cart
-              </Link>
-            </Col>
-          </Row>
-          <div style={styles.authLinks}>
-            <Link to="/support" style={styles.authItem}>
-              Trợ giúp
-            </Link>
-            <Link to="/login" style={styles.authItem}>
-              Tài khoản
-            </Link>
-          </div>
-        </nav>
-      </Container>
-    </div>
+    <header style={styles.header} className="header">
+      <nav style={styles.navbar}>
+        <div
+          style={{
+            height: "10vh",
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          <Link to="/home" style={styles.navItem}>
+            Shoe Store
+          </Link>
+        </div>
+        <div style={styles.navLinks}>
+          <Link to="/" style={styles.navItem}>
+            Trang chủ
+          </Link>
+          <Link to="/cart" style={styles.navItem}>
+            Giở hàng
+          </Link>
+          <Link to="/profile" style={styles.navItem}>
+            Cá nhân
+          </Link>
+          <Link to="/Orders" style={styles.navItem}>
+            Danh sách đơn hàng
+          </Link>
+          <Link to="/contact" style={styles.navItem}>
+            Liên hệ chúng tôi
+          </Link>
+          <Link to="/address" style={styles.navItem}>
+            Địa chỉ
+          </Link>
+        </div>
+      </nav>
+    </header>
   );
 };
 
 const styles = {
   header: {
-    backgroundColor: "#007bff",
-    padding: "10px 0",
+    backgroundColor: "#f9fafb",
   },
   navbar: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
+    flexWrap: "wrap",
   },
   navLinks: {
     display: "flex",
     gap: "20px",
+    flexWrap: "wrap",
+    flexDirection: "column",
+    marginTop: "1.5vh",
   },
   navItem: {
-    color: "#fff",
+    color: "black",
     textDecoration: "none",
     fontWeight: "bold",
     padding: "10px",
@@ -67,6 +69,7 @@ const styles = {
   authLinks: {
     display: "flex",
     gap: "15px",
+    flexWrap: "wrap",
   },
   authItem: {
     color: "#f8f8f8",
@@ -74,7 +77,6 @@ const styles = {
     fontWeight: "bold",
     transition: "color 0.3s ease",
   },
-  // Hover effect for nav and auth items
   hover: {
     color: "#ffdd57",
   },
