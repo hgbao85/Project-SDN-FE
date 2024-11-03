@@ -153,30 +153,32 @@ const HomeScreen = ({ navigation }) => {
           </div>
         )}
         <div style={{ display: "flex" }}>
-          {filteredProducts.length === 0 ? (
-            <div>
-              <p>No products found.</p>
-            </div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                flex: 7,
-                marginLeft: 50,
-              }}
-            >
-              {filteredProducts.map((item) => (
-                <ProductCard
-                  key={item._id}
-                  product={item}
-                  onClick={() =>
-                    navigation.navigate("Product Details", { product: item })
-                  }
-                />
-              ))}
-            </div>
-          )}
+          <div style={{ flex: 6 }}>
+            {filteredProducts.length === 0 ? (
+              <div>
+                <p>No products found.</p>
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flex: 7,
+                  marginLeft: 50,
+                }}
+              >
+                {filteredProducts.map((item) => (
+                  <ProductCard
+                    key={item._id}
+                    product={item}
+                    onClick={() =>
+                      navigation.navigate("Product Details", { product: item })
+                    }
+                  />
+                ))}
+              </div>
+            )}
+          </div>
           <div style={{ flex: 2.4 }}>
             <div
               style={{

@@ -1,5 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  FaHome,
+  FaShoppingCart,
+  FaUser,
+  FaListAlt,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -18,22 +26,22 @@ const Header = () => {
         </div>
         <div style={styles.navLinks}>
           <Link to="/" style={styles.navItem}>
-            Trang chủ
+            <FaHome style={styles.icon} /> Trang chủ
           </Link>
           <Link to="/cart" style={styles.navItem}>
-            Giở hàng
+            <FaShoppingCart style={styles.icon} /> Giỏ hàng
           </Link>
           <Link to="/profile" style={styles.navItem}>
-            Cá nhân
+            <FaUser style={styles.icon} /> Cá nhân
           </Link>
           <Link to="/Orders" style={styles.navItem}>
-            Danh sách đơn hàng
+            <FaListAlt style={styles.icon} /> Danh sách đơn hàng
           </Link>
           <Link to="/contact" style={styles.navItem}>
-            Liên hệ chúng tôi
+            <FaPhoneAlt style={styles.icon} /> Liên hệ chúng tôi
           </Link>
           <Link to="/address" style={styles.navItem}>
-            Địa chỉ
+            <FaMapMarkerAlt style={styles.icon} /> Địa chỉ
           </Link>
         </div>
       </nav>
@@ -65,34 +73,13 @@ const styles = {
     fontWeight: "bold",
     padding: "10px",
     transition: "color 0.3s ease",
-  },
-  authLinks: {
     display: "flex",
-    gap: "15px",
-    flexWrap: "wrap",
+    alignItems: "center",
+    gap: "5px",
   },
-  authItem: {
-    color: "#f8f8f8",
-    textDecoration: "none",
-    fontWeight: "bold",
-    transition: "color 0.3s ease",
-  },
-  hover: {
-    color: "#ffdd57",
+  icon: {
+    marginRight: "5px",
   },
 };
-
-// Adding hover effects in JavaScript since inline styles do not support CSS :hover
-const addHoverEffect = (element, style) => {
-  const originalColor = element.style.color;
-  element.onmouseover = () => (element.style.color = style.color);
-  element.onmouseout = () => (element.style.color = originalColor);
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelectorAll("a")
-    .forEach((link) => addHoverEffect(link, styles.hover));
-});
 
 export default Header;
